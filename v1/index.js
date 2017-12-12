@@ -18,11 +18,17 @@ $(function(){
             $('#yourCity').html(location.city);
             $('#yourLatitude').html(location.latitude);
             $('#yourLongitude').html(location.longitude);
+            console.log('the weather api call is about to happen');
             
-        $.getJSON('api.openweathermap.org/data/2.5/weather?lat='+location.latitude+'&lon='+location.longitude+'&units=imperial'+'77fa864765d734c0202173a635ba7872', function(data){
+        $.getJSON('//api.openweathermap.org/data/2.5/weather?lat='
+        +location.latitude+'&lon='
+        +location.longitude+'&units=imperial&appid=77fa864765d734c0202173a635ba7872', 
+        function(data){
             apiData = data;
-            console.log(apiData);
-        })
+            console.log(data);
+            console.log(data.weather[0].description);
+            console.log(data.wind.speed);
+        });
         });
     
     
